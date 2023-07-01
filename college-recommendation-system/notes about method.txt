@@ -1,0 +1,7 @@
+First we started out approach with Semantic search to find a list of similar colleges for a given query. It uses cosine similarity to find the relevant document from the list of the document in the copus to the given query.
+
+But this approach was failure. Because when the user provides the query the semantic search find the meaning to that query word and search if the similarity with meaning to the each documents in the corpus.
+
+But it is a good choice for unstructured data. As it will find the similarity score for the token in the query sentence with the corpus when using jaccord similarity measure.
+
+So, we used vector space model to find a list of similar colleges for the given query.

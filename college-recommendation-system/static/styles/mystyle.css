@@ -1,0 +1,110 @@
+/* css to the form */
+form{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+
+/* css to the form where the input type == text and when it is not focused*/
+input[type = "text"]{
+    width: 600px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f1f1f1;
+}
+
+/* css to the form where the input type == text and when it is focused*/
+input[type = "text"]:focus{
+    outline: none;
+    border-bottom: 4px solid #03a9f4;
+}
+
+/* css to the form where the button type == submit and when it is not focued*/
+button[type = "submit"]{
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    background-color: #03a9f4;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* css to the form where the button type == submit and when it is focued*/
+button[type = "submit"]:hover{
+    background-color: #0276aa;
+}
+
+/* css to the h3 tags*/
+h3{
+    background-color: #03a9f4;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 20;
+    font-weight: 700;
+}
+
+/* css to the h1 tags*/
+h1{
+    background-color: #03a9f4;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 20;
+    font-weight: 700;
+}
+
+/* css to the h2 tags*/
+h2{
+    background-color: cyan;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 20;
+    font-weight: 700;
+}
+
+/* css to the .btn class*/
+.btn{
+    background-color: rgb(14, 152, 198);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: rgb(14, 152, 198);
+}
+
+/* css to the table class*/
+table{
+    width: 100%;
+}
+
+/* css to the table header*/
+th{
+    background-color: #03a9f4;
+    color: white;
+}
+
+/* css to the table , table header and table data*/
+table, th, td {
+    border: 1px solid blue;
+    border-collapse : collapse;
+}
+
+/* css to the table header and table data*/
+td,th{
+    padding: 10px;
+    border: 1px solid blue;
+}
+
+/* css to the table data*/
+td{
+    text-align: left;
+}

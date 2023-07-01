@@ -1,0 +1,120 @@
+<html>
+    
+    <head>
+        <title>
+            IR - Package
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename = 'styles/mystyle.css')  }}">
+
+
+        <script>
+            function toggleCourses(index){
+                
+                var courses_offered = document.getElementById("courses_offered_"+index);
+                var toggle_button = document.getElementById("toggleButton"+index);
+
+                if( courses_offered.style.display == "block" ){
+                    courses_offered.style.display = "none";
+                    toggle_button.innerHTML = "Show Courses Offered";
+                }else{
+                    courses_offered.style.display = "block";
+                    toggle_button.innerHTML = "Hide Courses Offered";
+                }
+            }
+
+
+        </script>
+
+
+    </head>
+
+
+    <body>
+
+        <h3>
+            College Recommendation System
+        </h3>
+        
+        <!-- Form to get the input query  -->
+        <form method = "POST" enctype="multipart/form-data">
+            
+            <input type = "text" name = "query" placeholder="Search College" required>
+            
+            <button type="submit" > Search </button>
+
+        </form>
+
+        <!-- function for displaying the list  -->
+
+        {%  if data  %}
+            <table>
+
+                <!-- table header -->
+                <tr>
+                    <th>College Name</th>
+                    <th>College Location</th>
+                    <th>State</th>
+                    <th>College Type</th>
+                    <th>College Rating</th>
+                    <th>College Reference Link</th>
+                    <th>Total Reviews</th>
+                    <th>Courses Offered in the College</th>
+                </tr>
+
+                <!-- table contents -->
+                <!-- iterate through each item in the list and displaying it   -->
+                {% for row in data %}
+                    <tr>
+                        <!-- College Name -->
+                        <td>{{ row["Name"] }}</td>
+                        
+                        <!-- College Location -->
+                        <td>{{ row["Location"] }}</td>
+
+                        <!-- State -->
+                        <td>{{ row["State"] }}</td>
+
+                        <!-- College Type -->
+                        <td>{{ row["Type"] }}</td>
+
+                        <!-- College Rating -->
+                        <td>{{ row["Rating"] }}</td>
+
+                        <!-- College Reference Link -->
+                        <td> <a href="{{ row['Reference Link'] }}">  {{ row["Reference Link"] }}  </a></td>
+                        
+                        <!-- Total reviews given to the college -->
+                        <td>{{ row["Total Reviews"] }}</td>
+
+                        <!-- Course Offered in the Collge -->
+                        <td>
+                            <button onclick="toggleCourses('{{ loop.index }}')" class="btn" id = "toggleButton{{ loop.index }}"  > Show Courses Offered </button>
+                            <div id = "courses_offered_{{ loop.index }}" style="display: none;" >
+                                <ul>
+                                    {% for row in data %}
+                                        {% set courses = row['Courses Offered'].replace("[", "").replace("]", "").split(",") %}
+                                        {% for course in courses %}
+                                            <li>{{ course.strip().replace('"','') }}</li>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                <!-- Ending the for loop -->
+                {% endfor %}
+
+
+            </table>
+        
+
+        <!-- Ending the if -->
+        {% endif %}
+
+
+    </body>
+
+
+</html>
